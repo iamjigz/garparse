@@ -2,6 +2,10 @@ var clientId = '59447051502-b9g7vaaneag2g69obim7plucpcaa393b.apps.googleusercont
 var apiKey = 'AIzaSyCFItBnpRXO2jPZA0gexTo6Dpajo2p7Lcs';
 var scopes = 'https://www.googleapis.com/auth/gmail.readonly';
 
+/**
+ * [handleClientLoad description]
+ * @return {[type]} [description]
+ */
 function handleClientLoad() {
 	gapi.client.setApiKey(apiKey);
 	window.setTimeout(checkAuth, 1);
@@ -118,6 +122,7 @@ function getBody(message) {
 		encodedBody = getHTMLPart(message.parts);
 	}
 	encodedBody = encodedBody.replace(/-/g, '+').replace(/_/g, '/').replace(/\s/g, '');
+
 	return decodeURIComponent(escape(window.atob(encodedBody)));
 }
 
